@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 8%;
+    --foreground: 40 30% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 0 72% 45%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 145 45% 25%;
+    --secondary-foreground: 40 30% 95%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 42 85% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 0 72% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Christmas tokens */
+    --christmas-red: 0 72% 45%;
+    --christmas-green: 145 50% 30%;
+    --christmas-gold: 42 85% 55%;
+    --christmas-cream: 40 30% 92%;
+    --snow-white: 210 20% 98%;
+    --winter-night: 220 30% 6%;
+
+    /* Gradients */
+    --gradient-festive: linear-gradient(135deg, hsl(0 72% 45%) 0%, hsl(0 65% 35%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(35 80% 45%) 100%);
+    --gradient-night: linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 25% 12%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(0 72% 45% / 0.3);
+    --shadow-gold: 0 0 30px hsl(42 85% 55% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(42 85% 55%) 0%, hsl(35 80% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-festive {
+    background: var(--gradient-festive);
+  }
+
+  .bg-night {
+    background: var(--gradient-night);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+}
+
+/* Snow animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(20px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(0 72% 45% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(0 72% 45% / 0.5); }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float ease-in-out infinite 3s;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow ease-in-out infinite 2s;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
