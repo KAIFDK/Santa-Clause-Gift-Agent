@@ -59,8 +59,63 @@ A monorepo containing an interactive **3D Christmas Tree experience** and **Sant
 git clone <repo-url>
 cd santa-christmas-workshop
 
+▶️ Running the Project
+
+Open three terminals:
+
+Backend API
+cd backend
+npm run dev
 
 
-Zaheer Bt
+Runs on http://localhost:3001
+
+Main 3D Christmas Tree App
+npm run dev
+
+
+Runs on http://localhost:5173
+
+Santa’s Gift Assistant
+cd santa-s-gift-assistant-main
+npm run dev
+
+
+Runs on http://localhost:5175
+
+🧪 Usage
+
+Open http://localhost:5173
+
+Explore the 3D Christmas tree
+
+Rotate the camera using UI controls
+
+Open Santa’s Gift Assistant
+
+Ask Santa for gift suggestions
+
+🔌 Environment Variables
+
+Create a .env file inside backend/:
+
+PORT=3001
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+
+🏗 Build
+npm run build
+
+Build Sub-Projects
+cd santa-s-gift-assistant-main && npm run build
+cd holiday-sparkle-button-main && npm run build
+
+📄 License
+
+See license.txt for license information.
+
+🙌 Author
+
+Mohammad Kaif
 Full Stack Developer | React | Three.js | Node.js
 
